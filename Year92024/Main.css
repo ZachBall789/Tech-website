@@ -16,5 +16,8 @@ body::before {
     }
   }
   .text-light{
-    color:#000000 !important;
+    color:#ffffff !important;
+  }
+  .bg-dark{
+    color: Primary !important;
   }

@@ -18,7 +18,7 @@
       href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Main.css" />
     <title>Bright Mind</title>
   </head>
   <body>
@@ -46,15 +46,15 @@
               <a href="Reasorces.html" class="nav-link text-black">Resorces</a>
             </li>
             <li class="nav-item">
-              <a href="#Questions" class="nav-link text-black">Questions</a>
+              <a href="#Questions" class="nav-link text-black">Find Store</a>
             </li>
             <li class="nav-item">
               <button
                 class="btn btn-link text-black"
                 data-bs-toggle="modal"
-                data-bs-target="#contactus"
+                data-bs-target="#questions"
               >
-                Contact us
+              Ask a Question
               </button>
             </li>
           </ul>
@@ -66,7 +66,32 @@
     <br>
     <br>
     <br>
-    </body>
+
+    <!-- Learn Sections -->
+    <section id="learn" class="p-5">
+      <div class="container">
+        <div class="row align-items-center justify-content-between">
+          <div class="col-md">
+            <img src="0773324f-1b26-4006-8148-d1973b73c864.webp" class="img-fluid" alt="" />
+          </div>
+          <div class="col-md p-5">
+            <h2>Math Mayhem</h2> 
+            <p class="lead">
+              Math Mayhem focuses on improving the students ability to do qick and simple multiplication problems whilst making it fun and engagable through the use of VR headsets.
+            </p>
+            <p>
+              "Math Mayhem" is an immersive virtual reality (VR) game designed to make learning math fun and engaging for children. 
+              Players take on the role of a young hero in a colorful, futuristic arena filled with dynamic, sci-fi elements, 
+              solving math challenges and puzzles integrated into an adventurous storyline. Armed with a glowing math blaster, 
+              the hero navigates the environment, facing floating math problems, interactive objects, and a robotic math-monster boss guarding treasure. 
+              The game features animated numbers, a friendly robot sidekick, and a user interface that tracks progress and skill upgrades. 
+              With its vibrant visuals and engaging gameplay, "Math mayhem" combines education with excitement, 
+              ensuring a tailored and enjoyable learning experience for all players.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Newsletter -->
   <section class="bg-primary text-light p-5">
@@ -81,4 +106,70 @@
       </div>
     </div>
   </section>
+
+        <!-- Modal 2-->
+        <div
+        class="modal fade"
+        id="questions"
+        tabindex="-1"
+        aria-labelledby="contactlabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="contactlabel">Ask a Question</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <p class="lead">Fill out this form and we will get back to you</p>
+              <form>
+                <div class="mb-3">
+                  <label for="first-name" class="col-form-label">
+                    First Name:
+                  </label>
+                  <input type="text" class="form-control" id="first-name" />
+                </div>
+                <div class="mb-3">
+                  <label for="last-name" class="col-form-label">Last Name:</label>
+                  <input type="text" class="form-control" id="last-name" />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="col-form-label">Email:</label>
+                  <input type="email" class="form-control" id="email" />
+                </div>
+                <div class="mb-3">
+                  <label for="phone" class="col-form-label">Phone:</label>
+                  <input type="tel" class="form-control" id="phone" />
+                </div>
+                <div class="mb-3">
+                  <label for="phone" class="col-form-label">Question:</label>
+                  <input type="tel" class="form-control" id="phone" />
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
