@@ -20,6 +20,37 @@
     />
     <link rel="stylesheet" href="Main.css" />
     <title>Bright Mind</title>
+    <script>
+      function loadCart() {
+          let cart = JSON.parse(localStorage.getItem('cart')) || [];
+          let cartBody = document.getElementById('cart-body');
+          let total = 0;
+
+          cartBody.innerHTML = '';
+
+          cart.forEach(item => {
+              let itemTotal = item.price * item.quantity;
+              total += itemTotal;
+              cartBody.innerHTML += `
+                  <tr>
+                      <td>${item.name}</td>
+                      <td>$${item.price.toFixed(2)}</td>
+                      <td>${item.quantity}</td>
+                      <td>$${itemTotal.toFixed(2)}</td>
+                  </tr>
+              `;
+          });
+
+          document.getElementById('cart-total').innerText = total.toFixed(2);
+      }
+
+      function clearCart() {
+          localStorage.removeItem('cart');
+          loadCart();
+      }
+
+      window.onload = loadCart;
+  </script>
   </head>
   <body>
 
@@ -29,7 +60,7 @@
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
       <div class="container">
         <img src="Bright_mind_logo-removebg-preview.png" alt="Logo" width="60" height="65">
-        <a href="Index.html"navbar-brand text-black">Bright Mind</a>
+        <a href="Index.html" class="navbar-brand text-black">Bright Mind</a>
     
         <button
           class="navbar-toggler"
@@ -43,10 +74,10 @@
         <div class="collapse navbar-collapse" id="navmenu">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a href="Reasorces.html" class="nav-link text-black">Find Store</a>
+              <a href="Reasorces.html" class="nav-link text-black">Resorces</a>
             </li>
             <li class="nav-item">
-              <a href="#Questions" class="nav-link text-black">Questions</a>
+              <a href="#Questions" class="nav-link text-black">Find Store</a>
             </li>
             <li class="nav-item">
               <button
@@ -54,7 +85,7 @@
                 data-bs-toggle="modal"
                 data-bs-target="#questions"
               >
-                Ask a Question
+              Ask a Question
               </button>
             </li>
           </ul>
@@ -74,44 +105,48 @@
           <div class="col-md">
             <img src="1c15efcc-9172-4fcd-b429-6b9b8f729e04.webp" class="img-fluid" alt="" />
           </div>
-          <div class="col-md p-5">
-            <h2>Algebra Adventures</h2>
-            <p class="lead">
-              Number ninjas aims to target students mathamatical functions such as multiplication, addition and subtraction through the use of virtual reality.
-            </p>
-            <p>
-              "Number Ninjas" is an immersive virtual reality (VR) game designed to make learning math fun and engaging for children. 
-              Players take on the role of ninjas in vibrant, interactive landscapes, solving math challenges and puzzles integrated into an adventurous storyline. 
-              From ancient temples to mystical forests, the environments evolve as players progress, providing a sense of discovery. 
-              The game covers a variety of math topics like addition, subtraction, multiplication, division, and fractions, 
-              with adaptive difficulty levels to suit all skill levels. By solving problems, players earn and upgrade ninja skills, 
-              using abilities like "Math Shuriken" and "Number Stealth" to overcome obstacles. The engaging storyline involves rescuing villagers, 
-              retrieving artifacts, and defeating math-monster bosses. Multiplayer features allow for cooperative missions, friendly math duels, and tournaments, 
-              fostering a supportive online community. The game tracks progress and provides personalized feedback, ensuring a tailored learning experience 
-              that combines education with exciting gameplay.
-            </p>
-            <button class="btn btn-primary" onclick="addToCart(1, 'Algebra Adventures', 5.00)">Add to Cart</button>
-                   
-          </div>
+          <div class="container my-5">
+            <h1 class="mb-4">Shopping Cart</h1>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-body">
+                    <!-- Cart items will be inserted here by JavaScript -->
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="3">Total</th>
+                        <th id="cart-total">$0.00</th>
+                    </tr>
+                </tfoot>
+            </table>
+            <a href="Reasorces.html" class="btn btn-secondary">Continue Shopping</a>
+            <button class="btn btn-danger" onclick="clearCart()">Clear Cart</button>
+            <a href="#" class="btn btn-primary">Proceed to Checkout</a>
+        </div>
         </div>
       </div>
     </section>
 
-    
-        <!-- Newsletter -->
-<section class="bg-primary text-light p-5">
-  <div class="container">
-    <div class="d-md-flex justify-content-between align-items-center">
-      <h3 class="mb-3 mb-md-0">Sign Up For Our Newsletter</h3>
-
-      <div class="input-group news-input">
-        <input type="text" class="form-control" placeholder="Enter Email" />
-        <button class="btn btn-dark btn-lg" type="button">Submit</button>
+    <!-- Newsletter -->
+  <section class="bg-primary text-light p-5">
+    <div class="container">
+      <div class="d-md-flex justify-content-between align-items-center">
+        <h3 class="mb-3 mb-md-0">Sign Up For Our Newsletter</h3>
+  
+        <div class="input-group news-input">
+          <input type="text" class="form-control" placeholder="Enter Email" />
+          <button class="btn btn-dark btn-lg" type="button">Submit</button>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
         <!-- Modal 2-->
         <div
@@ -177,7 +212,6 @@
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
       crossorigin="anonymous"
     ></script>
-
     <script>
       function addToCart(productId, productName, productPrice) {
           let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -191,5 +225,5 @@
           alert('Product added to cart!');
       }
   </script>
-    </body>
+  </body>
 </html>
